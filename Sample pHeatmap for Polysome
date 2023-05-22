@@ -1,0 +1,18 @@
+
+> getwd()
+[1] "C:/Users/Silent/Documents"
+> setwd("C:/Users/Silent/Documents/mypHeatmap")
+> getwd()
+[1] "C:/Users/Silent/Documents/mypHeatmap"
+> read.csv("Total RNA for Poly.csv")
+> my1stHeatmap<-read.csv("Total RNA for Poly.csv")
+> rownames(my1stHeatmap)<-my1stHeatmap$Gene
+> my1stHeatmap1<-my1stHeatmap[, 2:9]
+> library(pheatmap)
+> pheatmap(my1stHeatmap1)
+> heatmap_log2<-log2(my1stHeatmap1)
+> pheatmap(heatmap_log2)
+> summary(heatmap_log2)
+> heatmap_log2[heatmap_log2==-Inf]<--1
+> pheatmap(heatmap_log2)
+> pheatmap(heatmap_log2, scale="row")
